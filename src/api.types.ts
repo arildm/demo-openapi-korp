@@ -3,10 +3,12 @@
 export type ConcordanceParams = {
   corpora: string;
   cqp: string;
+  limit?: string;
 };
 
 export type ConcordanceResponse = {
   kwic: Row[];
+  total_hits: number;
 };
 
 export type Row = {

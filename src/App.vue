@@ -13,6 +13,8 @@ watchEffect(async () => {
 <template>
   <h1>Demo: OpenAPI in Korp</h1>
 
+  <p v-if="data?.total_hits != null">{{ data.total_hits }} hits</p>
+
   <div v-for="row in data?.kwic">
     <span v-for="token in row.tokens">
       {{ token.word + " " }}

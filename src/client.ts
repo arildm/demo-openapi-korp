@@ -7,6 +7,7 @@ export async function loadKwic() {
   const params: ConcordanceParams = {
     corpora: "da",
     cqp: "[lemma contains 'regn']",
+    limit: "20",
   };
   const searchParams = new URLSearchParams(params);
   const url = `${BASE}/concordance?${searchParams.toString()}`;
