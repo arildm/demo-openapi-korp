@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, watchEffect } from "vue";
 import { loadKwic } from "./client";
-import type { ConcordanceResponse } from "./api.types";
+import type { components } from "./api";
 
-const data = ref<ConcordanceResponse>();
+const data = ref<components["schemas"]["ConcordanceResponse"]>();
 
 watchEffect(async () => {
   data.value = await loadKwic();
@@ -16,6 +16,7 @@ watchEffect(async () => {
   <p v-if="data?.total_hits != null">{{ data.total_hits }} hits</p>
 
   <div v-for="row in data?.kwic">
+    {{ row.corpus }}:
     <span v-for="token in row.tokens">
       {{ token.word + " " }}
     </span>
